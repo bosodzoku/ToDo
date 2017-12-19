@@ -13,8 +13,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     // reference to Item.swift
     
-    var item = Item? ()
-  
+    var item : Item?
+    
     @IBAction func cancel(sender: UIBarButtonItem) {
     let isInAddMode = presentingViewController is UINavigationController
         if isInAddMode {
@@ -65,7 +65,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if let item = item {
             nameTextField.text = item.name
             // setting a date using our convert function stringToDate with item.date property
-            myDatePicker.setDate(stringToDate(item.date), animated: true)
+            myDatePicker.setDate(stringToDate(string: item.date) as Date, animated: true)
         }
         
         //Looks for single or multiple taps.
