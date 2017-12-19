@@ -16,17 +16,17 @@ class ItemTableViewController: UITableViewController {
         let item = scrViewCon?.item
         if (scrViewCon != nil &&
             item?.name != "" && item?.date != "") {
-                if let selectedIndexPath = tableView.indexPathForSelectedRow() {
+                if let selectedIndexPath = tableView.indexPathForSelectedRow {
                     
                     items[selectedIndexPath.row] = item!
-                    tableView.reloadRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .None)
+                    tableView.reloadRows(at: [selectedIndexPath], with: .none)
                 }
                 else {
                     //
                 let newIndexPath = NSIndexPath(row: items.count, section: 0)
                 items.append(item!)
                 
-                    tableView.insertRows(at: [newIndexPath as IndexPath], with: .bottom)
+                    tableView.insertRows(at: [newIndexPath as IndexPath], with: UITableViewRowAnimation.bottom)
                 }
                 //call save here (is it all for updating existing item's data? //refer sololearn's guide!
                 saveItems()
