@@ -9,17 +9,17 @@
 import UIKit
 
 class ItemTableViewController: UITableViewController {
+   var items = [Item]()
     
-    @IBAction func unwindToList(sender: UIStoryboardSegue) {
+    @IBAction func unwindToList (sender: UIStoryboardSegue) {
         let scrViewCon = sender.source
         as? ViewController
         let item = scrViewCon?.item
         if (scrViewCon != nil &&
             item?.name != "" && item?.date != "") {
                 if let selectedIndexPath = tableView.indexPathForSelectedRow {
-                    
                     items[selectedIndexPath.row] = item!
-                    tableView.reloadRows(at: [selectedIndexPath], with: .none)
+                    tableView.reloadRows(at: [selectedIndexPath], with: UITableViewRowAnimation.none)
                 }
                 else {
                     //
@@ -32,9 +32,6 @@ class ItemTableViewController: UITableViewController {
                 saveItems()
         }
     }
-    
-    var items = [Item]()
-
     
     // to save items (reference to Item.swift)
     func saveItems() {

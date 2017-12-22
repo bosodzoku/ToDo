@@ -7,13 +7,12 @@
 //
 
 import UIKit
-import EventKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
 
     // reference to Item.swift
     
-    var item : Item?
+    var item: Item?
     
     @IBAction func cancel(sender: UIBarButtonItem) {
     let isInAddMode = presentingViewController is UINavigationController
@@ -32,6 +31,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var myDatePicker: UIDatePicker!
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
+
     
     
     //converting date to string to show in table cell
@@ -52,8 +52,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
         //sending out picker data to Item in tableview
     
-    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if saveButton === sender {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if sender as AnyObject? === saveButton {
             let name = nameTextField.text ?? ""
             let date = dateToString (date: myDatePicker.date as NSDate)
             item = Item (name: name, date: date)
@@ -69,19 +69,19 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         
         //Looks for single or multiple taps.
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        //let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         
         //Uncomment the line below if you want the tap not not interfere and cancel other interactions
         //tap.cancelsTouchesInView = false
         
-        view.addGestureRecognizer(tap)
+        //view.addGestureRecognizer(tap)
     }
     
     //Calls this function when the tap is recognized.
-    func dismissKeyboard() {
+    //func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        view.endEditing(true)
-    }
+        //view.endEditing(true)
+    //}
     
     
     
@@ -90,6 +90,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
+        }
 
     }

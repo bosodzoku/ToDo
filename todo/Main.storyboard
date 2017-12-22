@@ -79,7 +79,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="LIK-ou-OoX">
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="LIK-ou-OoX">
                                 <rect key="frame" x="16" y="202" width="288" height="151"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="LIK-ou-OoX" secondAttribute="height" multiplier="288:151" id="SxL-X3-3dN"/>
@@ -92,9 +92,12 @@
                                 </date>
                                 <locale key="locale" localeIdentifier="en_150"/>
                             </datePicker>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Us-Ib-2O1">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Us-Ib-2O1">
                                 <rect key="frame" x="16" y="72" width="288" height="113"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="113" id="vdq-Vc-pmx"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -102,8 +105,10 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="LIK-ou-OoX" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="9U6-hn-y5E"/>
+                            <constraint firstItem="3Us-Ib-2O1" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="Dvv-1y-Lry"/>
                             <constraint firstItem="LIK-ou-OoX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="P4B-TC-q06"/>
                             <constraint firstItem="3Us-Ib-2O1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="aNW-xU-X6j"/>
+                            <constraint firstItem="LIK-ou-OoX" firstAttribute="top" secondItem="3Us-Ib-2O1" secondAttribute="bottom" constant="17" id="oAR-mv-kxK"/>
                             <constraint firstItem="3Us-Ib-2O1" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="oY1-1z-pjc"/>
                         </constraints>
                     </view>
@@ -113,16 +118,16 @@
                                 <action selector="cancelWithSender:" destination="BYZ-38-t0r" id="z4N-XP-pYh"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="Knc-vb-vaM">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="7Sc-Hm-28F">
                             <connections>
-                                <segue destination="CVJ-Bn-vam" kind="unwind" unwindAction="unwindToList:" id="112-4I-0oI"/>
+                                <segue destination="CVJ-Bn-vam" kind="unwind" unwindAction="unwindToList:" id="Piv-0u-gcI"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="myDatePicker" destination="LIK-ou-OoX" id="G0b-sh-pCy"/>
                         <outlet property="nameTextField" destination="3Us-Ib-2O1" id="ibh-E2-FIE"/>
-                        <outlet property="saveButton" destination="Knc-vb-vaM" id="Cdr-9B-dJP"/>
+                        <outlet property="saveButton" destination="7Sc-Hm-28F" id="QIZ-Rc-IQQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

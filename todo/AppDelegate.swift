@@ -7,12 +7,12 @@
 //
 
 import UIKit
+import Foundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
 
     private func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions:
 

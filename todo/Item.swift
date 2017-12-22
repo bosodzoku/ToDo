@@ -24,11 +24,12 @@ class Item: NSObject, NSCoding {
     static let Dir = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
     //assign data to values defined above
     static let ArchiveURL = Dir.appendingPathComponent("items")
-    init?(name: String, date: String) {
+    
+    required init (name: String, date: String) {
         self.name = name
         self.date = date
-        super.init()
     }
+    
     
     //access to Db
     
