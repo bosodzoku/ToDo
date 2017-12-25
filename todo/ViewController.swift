@@ -50,7 +50,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return dateFormatter.date(from: string)! as NSDate
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
         if sender as AnyObject? === saveButton {
             let name = nameTextField.text ?? ""
             let date = dateToString (date: myDatePicker.date as NSDate)
