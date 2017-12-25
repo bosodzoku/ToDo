@@ -22,7 +22,6 @@ class Item: NSObject, NSCoding {
     
     //for storing data, first is default app directory which is ok for now
     static let Dir = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
-    //assign data to values defined above
     static let ArchiveURL = Dir.appendingPathComponent("items")
     
     required init (name: String, date: String) {

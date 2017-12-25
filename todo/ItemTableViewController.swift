@@ -9,11 +9,9 @@
 import UIKit
 
 class ItemTableViewController: UITableViewController {
-   var items = [Item]()
     
     @IBAction func unwindToList (sender: UIStoryboardSegue) {
-        let scrViewCon = sender.source
-        as? ViewController
+        let scrViewCon = sender.source as? ViewController
         let item = scrViewCon?.item
         if (scrViewCon != nil &&
             item?.name != "" && item?.date != "") {
@@ -28,10 +26,10 @@ class ItemTableViewController: UITableViewController {
                 
                     tableView.insertRows(at: [newIndexPath as IndexPath], with: UITableViewRowAnimation.bottom)
                 }
-                //call save here (is it all for updating existing item's data? //refer sololearn's guide!
                 saveItems()
         }
     }
+    var items = [Item]()
     
     // to save items (reference to Item.swift)
     func saveItems() {
@@ -56,9 +54,9 @@ class ItemTableViewController: UITableViewController {
         }
         
     }
-    //override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        //return 1
-    //}
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
     //now use self.count
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count

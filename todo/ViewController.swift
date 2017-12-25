@@ -50,8 +50,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return dateFormatter.date(from: string)! as NSDate
     }
     
-        //sending out picker data to Item in tableview
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if sender as AnyObject? === saveButton {
             let name = nameTextField.text ?? ""
