@@ -31,7 +31,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var myDatePicker: UIDatePicker!
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
-
+    
     
     
     //converting date to string to show in table cell
@@ -50,44 +50,27 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return dateFormatter.date(from: string)! as NSDate
     }
     
-     func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if sender as AnyObject? === saveButton {
             let name = nameTextField.text ?? ""
             let date = dateToString (date: myDatePicker.date as NSDate)
-            item = Item (name: name, date: date)
+            item = Item(name: name, date: date)
         }
     }
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if let item = item {
             nameTextField.text = item.name
             // setting a date using our convert function stringToDate with item.date property
-            myDatePicker.setDate(stringToDate(string: item.date) as Date, animated: true)
+            myDatePicker.setDate(stringToDate(string: item.date) as Date!, animated: true)
         }
-        
-        //Looks for single or multiple taps.
-        //let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-        
-        //Uncomment the line below if you want the tap not not interfere and cancel other interactions
-        //tap.cancelsTouchesInView = false
-        
-        //view.addGestureRecognizer(tap)
     }
     
-    //Calls this function when the tap is recognized.
-    //func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        //view.endEditing(true)
-    //}
-    
-    
-    
-    //idfk why we need this ->
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-        }
-
+    //to hide keyboard when touch out of
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
+}

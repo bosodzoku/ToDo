@@ -11,13 +11,13 @@ import UIKit
 class ItemTableViewController: UITableViewController {
     
     @IBAction func unwindToList (sender: UIStoryboardSegue) {
-        let scrViewCon = sender.source as? ViewController
-        let item = scrViewCon?.item
-        if (scrViewCon != nil &&
+        let ViewCon = sender.source as? ViewController
+        let item = ViewCon?.item
+        if (ViewCon != nil &&
             item?.name != "" && item?.date != "") {
                 if let selectedIndexPath = tableView.indexPathForSelectedRow {
                     items[selectedIndexPath.row] = item!
-                    tableView.reloadRows(at: [selectedIndexPath], with: UITableViewRowAnimation.none)
+                    tableView.reloadRows(at: [selectedIndexPath], with: .none)
                 }
                 else {
                     //

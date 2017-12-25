@@ -92,7 +92,7 @@
                                 </date>
                                 <locale key="locale" localeIdentifier="en_150"/>
                             </datePicker>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Us-Ib-2O1">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" keyboardDismissMode="interactive" text="Enter text here" translatesAutoresizingMaskIntoConstraints="NO" id="3Us-Ib-2O1">
                                 <rect key="frame" x="16" y="72" width="288" height="113"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -118,16 +118,16 @@
                                 <action selector="cancelWithSender:" destination="BYZ-38-t0r" id="z4N-XP-pYh"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="7Sc-Hm-28F">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="2Eu-oJ-3k5">
                             <connections>
-                                <segue destination="CVJ-Bn-vam" kind="unwind" unwindAction="unwindToList:" id="Piv-0u-gcI"/>
+                                <segue destination="CVJ-Bn-vam" kind="unwind" identifier="unwintToList:" unwindAction="unwindToList:" id="P0K-5x-W9l"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="myDatePicker" destination="LIK-ou-OoX" id="G0b-sh-pCy"/>
                         <outlet property="nameTextField" destination="3Us-Ib-2O1" id="ibh-E2-FIE"/>
-                        <outlet property="saveButton" destination="7Sc-Hm-28F" id="QIZ-Rc-IQQ"/>
+                        <outlet property="saveButton" destination="2Eu-oJ-3k5" id="oY6-eU-DMy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
